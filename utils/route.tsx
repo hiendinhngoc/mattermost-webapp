@@ -1,6 +1,8 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import {UserProfile} from 'mattermost-redux/types/users';
+
 import {ErrorPageTypes} from 'utils/constants';
 import {isGuest} from 'utils/utils.jsx';
 
@@ -27,7 +29,7 @@ const mfaAuthServices = [
     'ldap',
 ];
 
-export function checkIfMFARequired(user, license, config, path) {
+export function checkIfMFARequired(user: UserProfile, license, config, path) {
     if (license.MFA === 'true' &&
             config.EnableMultifactorAuthentication === 'true' &&
             config.EnforceMultifactorAuthentication === 'true' &&
